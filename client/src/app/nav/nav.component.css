@@ -1,5 +1,8 @@
-nav{
-    background-color: #000000b3;   
+.navbar-toggler{
+    background-color: white;   
+}
+.navbar{
+    background-color: #000000b3;
 }
 .nav-item{
     margin-left: 15px;
