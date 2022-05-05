@@ -11,7 +11,8 @@
         <div class="col-sm">
           <figcaption class="figure-caption text-center">Garaże blaszane</figcaption>
           <img class="image"
-               src="https://transtal.com/environment/cache/images/0_0_productGfx_7675/garaz-blaszany-4x6-matowa-czern-antracyt-v2-miniatura.jpg">
+               src="https://transtal.com/environment/cache/images/0_0_productGfx_7675/garaz-blaszany-4x6-matowa-czern-antracyt-v2-miniatura.jpg"
+          (click)='isSampleGarageChoose()'>
         </div>
 
         <div class="col-sm">
@@ -54,3 +55,6 @@
 
 </div>
 <hr style="height:2px;border-width:0;color:black;background-color:black; width: 95%">
+<div class="div" *ngIf="isSampleGarage">
+  <app-garage-configurator></app-garage-configurator>
+</div>
