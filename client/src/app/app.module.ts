@@ -10,6 +10,14 @@ import { NavComponent } from './nav/nav.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './configurator/contact.component';
 import { FooterComponent } from './footer/footer.component';
+import { GarageConfiguratorComponent } from './garage-configurator/garage-configurator.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {MatSliderModule} from "@angular/material/slider";
+import {MatStepperModule} from "@angular/material/stepper";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -18,7 +26,8 @@ import { FooterComponent } from './footer/footer.component';
     NavComponent,
     ProductsComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    GarageConfiguratorComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +39,13 @@ import { FooterComponent } from './footer/footer.component';
       {path: 'oferta', component: ProductsComponent}
 
     ]),
+    MatFormFieldModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
