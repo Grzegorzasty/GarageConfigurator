@@ -18,6 +18,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import { StepperComponent } from './garage-configurator/stepper/stepper.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MatInputModule} from "@angular/material/input";
     ProductsComponent,
     ContactComponent,
     FooterComponent,
-    GarageConfiguratorComponent
+    GarageConfiguratorComponent,
+    StepperComponent
   ],
   imports: [
     BrowserModule,

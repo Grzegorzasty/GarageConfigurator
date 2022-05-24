@@ -1,46 +1,8 @@
-<div class="div">
-  <div class="row" style="text-align: center;" >
-    <h1>KONFIGURATOR</h1>
-  </div>
-  <div class="row" style="text-align: center;" >
-    <div class="col mt-2">
-      <img src="../../assets/images/g1.png">
-    </div>
-    <div class="col mt-2" >
-      <h4>Długość</h4>
-      <mat-form-field appearance="fill">
-        <mat-label>Wybierz długość [cm]</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let dl of dls" [value]="dl">
-            {{dl}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="col mt-2">
-      <h4>Szerokość</h4>
-      <mat-form-field appearance="fill">
-        <mat-label>Wybierz szerokość[cm]</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let dl of dls" [value]="dl">
-            {{dl}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="col mt-2">
-      <h4>Wysokość</h4>
-      <mat-form-field appearance="fill">
-        <mat-label>Wybierz wysokość[cm]</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let dl of dls" [value]="dl">
-            {{dl}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </div>
+<div class="row" style="text-align: center;" >
+  <h1>KONFIGURATOR</h1>
 </div>
+<app-stepper></app-stepper>
+
 
 
 
