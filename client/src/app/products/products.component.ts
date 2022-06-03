@@ -6,16 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  isSampleGarage: boolean;
+  isSampleGarage: string;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.isSampleGarage = false;
+    this.isSampleGarage = "";
   }
 
-  isSampleGarageChoose() {
-    this.isSampleGarage = !this.isSampleGarage
+  isSampleGarageChoose(name: string) {
+    this.isSampleGarage = name;
   }
 
 }

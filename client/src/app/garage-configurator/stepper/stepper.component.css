@@ -1,24 +1,27 @@
 .mat-stepper-horizontal {
-    margin-top: 8px;
-  }
-  
-  .mat-form-field {
-    margin-top: 16px;
-  }
-  .col-sm {
-    text-align: center;
-  }
-  .image:hover {
-    transform: scale(1.08, 1.08);
-    transition-duration: 400ms;
-    transition-timing-function: ease-out;
-    opacity: 0.9;
-  }
-  .image{
-    position:relative;
-    top: 0;
-    left: 0;
-  }
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+.col-sm {
+  text-align: center;
+}
+.color-image{
+  margin:25px;
+  margin-bottom: 5px;
+}
+.image:hover, .color-image:hover {
+  transform: scale(1.08, 1.08);
+  transition-duration: 400ms;
+  transition-timing-function: ease-out;
+}
+.image{
+  position:relative;
+  top: 0;
+  left: 0;
+}
 .image-over{
   position:absolute;
   top: 75px;

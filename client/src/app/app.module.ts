@@ -19,6 +19,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import { StepperComponent } from './garage-configurator/stepper/stepper.component';
+import { DumpsterConfiguratorComponent } from './dumpster-configurator/dumpster-configurator.component';
+import { GardenStorageConfiguratorComponent } from './garden-storage-configurator/garden-storage-configurator.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { StepperComponent } from './garage-configurator/stepper/stepper.componen
     ContactComponent,
     FooterComponent,
     GarageConfiguratorComponent,
-    StepperComponent
+    StepperComponent,
+    DumpsterConfiguratorComponent,
+    GardenStorageConfiguratorComponent
   ],
   imports: [
     BrowserModule,
