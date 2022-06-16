@@ -4,12 +4,12 @@
         <ng-template matStepLabel>WYMIARY</ng-template>
         <div class="row" style="text-align: center;" >
             <div class="col mt-2">
-              <img src="../../assets/images/garaz-wymiary.jpg">
+              <img class="image-size" src="../../assets/images/garaz-wymiary.jpg">
             </div>
             <div class="col mt-2" >
               <h4>Długość</h4>
               <mat-form-field appearance="fill">
-                <mat-label>Wybierz długość [cm]</mat-label>
+                <mat-label>Wybierz długość [m]</mat-label>
                 <mat-select>
                   <mat-option *ngFor="let dl of dls" [value]="dl">
                     {{dl}}
@@ -20,7 +20,7 @@
             <div class="col mt-2">
               <h4>Szerokość</h4>
               <mat-form-field appearance="fill">
-                <mat-label>Wybierz szerokość[cm]</mat-label>
+                <mat-label>Wybierz szerokość[m]</mat-label>
                 <mat-select>
                   <mat-option *ngFor="let dl of dls" [value]="dl">
                     {{dl}}
@@ -31,7 +31,7 @@
             <div class="col mt-2">
               <h4>Wysokość</h4>
               <mat-form-field appearance="fill">
-                <mat-label>Wybierz wysokość[cm]</mat-label>
+                <mat-label>Wybierz wysokość[m]</mat-label>
                 <mat-select>
                   <mat-option *ngFor="let dl of dls" [value]="dl">
                     {{dl}}
@@ -41,65 +41,66 @@
             </div>
           </div>
         <div class="row justify-content-center">
-            <div class="col-1 text-center"><button mat-button matStepperPrevious>Back</button></div>
-            <div class="col-1 text-center"><button mat-button matStepperNext>Next</button></div>
+            <div class="col-1 text-center"><button mat-button matStepperPrevious>Wstecz</button></div>
+            <div class="col-1 text-center"><button mat-button matStepperNext>Dalej</button></div>
         </div>
     </mat-step>
 
     <mat-step>
         <ng-template matStepLabel>SPAD DACHU</ng-template>
         <div class="container-fluid">
-           
+
             <div class="row mt-5 mb-5">
                 <div class="col">
                     <div class="row">
                         <div class="col-sm">
-                            <figcaption class="figure-caption text-center mb-2">prawo - lewo</figcaption>
-                            <img (click)="isChecked('prawolewo')" class="image" src="../../assets/images/prawo-lewo.jpg">
-                            <img  class="image-over" [hidden]="prawolewo" src="../../assets/images/check-mark.png">
+                            <figcaption class="figure-caption text-center mb-2">Prawo - Lewo</figcaption>
+                            <img (click)="setRoofChoice(1)" class="image" src="../../assets/images/prawo-lewo.jpg">
+                            <img  class="image-over" [hidden]="true" src="../../assets/images/check-mark.png">
                         </div>
                         <div class="col-sm">
-                            <figcaption class="figure-caption text-center mb-2">tył</figcaption>
-                            <img (click)="isChecked('tyl')" class="image" src="../../assets/images/tył.jpg">
-                            <img  class="image-over" [hidden]="tyl" src="../../assets/images/check-mark.png">
+                            <figcaption class="figure-caption text-center mb-2">Tył</figcaption>
+                            <img (click)="setRoofChoice(2)" class="image" src="../../assets/images/tył.jpg">
+                            <img  class="image-over" [hidden]="true" src="../../assets/images/check-mark.png">
                           </div>
                         <div class="col-sm">
-                            <figcaption class="figure-caption text-center mb-2">prawo</figcaption>
-                            <img (click)="isChecked('prawo')" class="image" src="../../assets/images/prawo.jpg">
-                            <img  class="image-over" [hidden]="prawo" src="../../assets/images/check-mark.png">
+                            <figcaption class="figure-caption text-center mb-2">Prawo</figcaption>
+                            <img (click)="setRoofChoice(3)" class="image" src="../../assets/images/prawo.jpg">
+                            <img  class="image-over" [hidden]="true" src="../../assets/images/check-mark.png">
                           </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="row">
                         <div class="col-sm">
-                            <figcaption class="figure-caption text-center mb-2">lewo</figcaption>
-                            <img (click)="isChecked('lewo')" class="image" src="../../assets/images/lewo.jpg">
-                            <img  class="image-over" [hidden]="lewo" src="../../assets/images/check-mark.png">
+                            <figcaption class="figure-caption text-center mb-2">Lewo</figcaption>
+                            <img (click)="setRoofChoice(4)" class="image" src="../../assets/images/lewo.jpg">
+                            <img  class="image-over" [hidden]="true" src="../../assets/images/check-mark.png">
                           </div>
                         <div class="col-sm">
-                            <figcaption class="figure-caption text-center mb-2">przód</figcaption>
-                            <img (click)="isChecked('przod')" class="image" src="../../assets/images/przód.jpg">
-                            <img  class="image-over" [hidden]="przod" src="../../assets/images/check-mark.png">
+                            <figcaption class="figure-caption text-center mb-2">Przód</figcaption>
+                            <img (click)="setRoofChoice(5)" class="image" src="../../assets/images/przód.jpg">
+                            <img  class="image-over" [hidden]="true" src="../../assets/images/check-mark.png">
                           </div>
                         <div class="col-sm">
-                            <figcaption class="figure-caption text-center mb-2">przód - tył</figcaption>
-                            <img (click)="isChecked('przodtyl')" class="image" src="../../assets/images/przód-tył.jpg">
-                            <img  class="image-over" [hidden]="przodtyl" src="../../assets/images/check-mark.png">
+                            <figcaption class="figure-caption text-center mb-2">Przód - Tył</figcaption>
+                            <img (click)="setRoofChoice(6)" class="image" src="../../assets/images/przód-tył.jpg">
+                            <img  class="image-over" [hidden]="true" src="../../assets/images/check-mark.png">
                           </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-1 text-center"><button mat-button matStepperPrevious>Back</button></div>
-            <div class="col-1 text-center"><button mat-button matStepperNext>Next</button></div>
+            <div class="col-1 text-center"><button mat-button matStepperPrevious>Wstecz</button></div>
+            <div class="col-1 text-center"><button mat-button matStepperNext>Dalej</button></div>
         </div>
     </mat-step>
-    
+
     <mat-step >
-        
+
             <ng-template matStepLabel>KOLOR I RODZAJ POSZYCIA</ng-template>
+
             <div class="container-fluid">
               <div class="row">
                   <div class="col">
@@ -304,7 +305,7 @@
           </div>
     </mat-step>
     <mat-step >
-        
+
       <ng-template matStepLabel>RODZAJ PRZETŁOCZENIA</ng-template>
       <div class="container-fluid">
         <div class="row">
