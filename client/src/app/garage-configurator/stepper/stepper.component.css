@@ -1,6 +1,10 @@
 .mat-stepper-horizontal {
   margin-top: 8px;
 }
+.image-size {
+  height: 75%;
+  width: 65%;
+}
 
 .mat-form-field {
   margin-top: 16px;
@@ -16,6 +20,7 @@
   transform: scale(1.08, 1.08);
   transition-duration: 400ms;
   transition-timing-function: ease-out;
+  opacity: 0.9;
 }
 .image{
   position:relative;
