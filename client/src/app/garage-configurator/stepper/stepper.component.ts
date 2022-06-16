@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-stepper',
@@ -14,12 +14,10 @@ export class StepperComponent implements OnInit {
   przod: boolean;
   przodtyl: boolean;
 
-  dls: number[] = [
-    2,2.5,3,3.5,4,4.5,5
-  ];
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   isEditable = false;
+  length = new FormControl('', [Validators.required]);
 
   constructor(private _formBuilder: FormBuilder) { }
 
@@ -41,7 +39,7 @@ export class StepperComponent implements OnInit {
   isChecked(name:string) {
     switch(name){
       case "prawolewo": {
-        this.prawolewo = !this.prawolewo; 
+        this.prawolewo = !this.prawolewo;
         this.tyl = true;
         this.prawo = true;
         this.lewo = true;
@@ -50,7 +48,7 @@ export class StepperComponent implements OnInit {
         break;
       }
       case "tyl": {
-        this.prawolewo = true; 
+        this.prawolewo = true;
         this.tyl = !this.tyl;
         this.prawo = true;
         this.lewo = true;
@@ -59,7 +57,7 @@ export class StepperComponent implements OnInit {
         break;
       }
       case "prawo": {
-        this.prawolewo = true; 
+        this.prawolewo = true;
         this.tyl = true;
         this.prawo = !this.prawo;
         this.lewo = true;
@@ -68,7 +66,7 @@ export class StepperComponent implements OnInit {
         break;
       }
       case "lewo": {
-        this.prawolewo = true; 
+        this.prawolewo = true;
         this.tyl = true;
         this.prawo = true;
         this.lewo = !this.lewo;
@@ -77,7 +75,7 @@ export class StepperComponent implements OnInit {
         break;
       }
       case "przod": {
-        this.prawolewo = true; 
+        this.prawolewo = true;
         this.tyl = true;
         this.prawo = true;
         this.lewo = true;
@@ -86,7 +84,7 @@ export class StepperComponent implements OnInit {
         break;
       }
       case "przodtyl": {
-        this.prawolewo = true; 
+        this.prawolewo = true;
         this.tyl = true;
         this.prawo = true;
         this.lewo = true;
