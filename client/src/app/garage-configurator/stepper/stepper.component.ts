@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatHorizontalStepper} from "@angular/material/stepper";
 
@@ -12,11 +12,19 @@ export class StepperComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  roofChoice: number;
   isEditable = false;
   length = new FormControl('', [Validators.required]);
+  width = new FormControl('', [Validators.required]);
+  height = new FormControl('', [Validators.required]);
+  roofChoice: number;
+  colorChoice: number;
+  roofColorChoice: number;
+  gateChoice: number;
+  embossingChoice: number;
 
-  constructor(private _formBuilder: FormBuilder) { }
+
+  constructor(private _formBuilder: FormBuilder) {
+  }
 
    ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -30,10 +38,24 @@ export class StepperComponent implements OnInit {
     this.stepper._getIndicatorType = () => 'number';
   }
 
-  setRoofChoice(roofChoiceId) {
+  setRoofChoice(roofChoiceId: number) {
     this.roofChoice = roofChoiceId;
-    console.log(this.roofChoice);
   }
 
+  setColourChoice(colourChoiceId: number) {
+    this.colorChoice = colourChoiceId;
+  }
+
+  setRoofColorChoice(roofColorChoiceId: number) {
+    this.roofColorChoice = roofColorChoiceId;
+  }
+
+  setEmbossingChoice(embossingChoiceId: number) {
+    this.embossingChoice = embossingChoiceId;
+  }
+
+  setGateChoice(gateChoiceId: number) {
+    this.gateChoice = gateChoiceId;
+  }
 
 }

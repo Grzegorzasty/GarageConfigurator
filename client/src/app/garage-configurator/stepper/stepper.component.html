@@ -1,345 +1,481 @@
 <mat-stepper linear #stepper>
 
-    <mat-step >
-        <ng-template matStepLabel>WYMIARY</ng-template>
-        <div class="row" style="text-align: center;" >
-            <div class="col mt-2">
-              <img class="image-size" src="../../assets/images/garaz-wymiary.jpg">
+  <mat-step>
+    <ng-template matStepLabel>WYMIARY</ng-template>
+    <div class="row" style="text-align: center;">
+      <div class="col mt-2">
+        <img class="image-size" src="../../assets/images/garaz-wymiary.jpg">
+      </div>
+      <div class="col mt-2">
+        <h4>Długość</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Wybierz długość [cm]</mat-label>
+          <input type="number" matInput [formControl]="length" min="0">
+        </mat-form-field>
+      </div>
+      <div class="col mt-2">
+        <h4>Szerokość</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Wybierz szerokość[cm]</mat-label>
+          <input type="number" matInput [formControl]="width" min="0">
+        </mat-form-field>
+      </div>
+      <div class="col mt-2">
+        <h4>Wysokość</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Wybierz wysokość[cm]</mat-label>
+          <input type="number" matInput [formControl]="height" min="0">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-1 text-center">
+        <button mat-button matStepperPrevious>Wstecz</button>
+      </div>
+      <div class="col-1 text-center">
+        <button mat-button matStepperNext>Dalej</button>
+      </div>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>SPAD DACHU</ng-template>
+    <div class="container-fluid">
+
+      <div class="row mt-5 mb-5">
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <figcaption class="figure-caption text-center mb-2">Prawo - Lewo</figcaption>
+              <img (click)="setRoofChoice(1)" class="image" src="../../assets/images/prawo-lewo.jpg">
+              <img class="image-over" [hidden]="roofChoice%6!==1" src="../../assets/images/check-mark.png">
             </div>
-            <div class="col mt-2" >
-              <h4>Długość</h4>
-              <mat-form-field appearance="fill">
-                <mat-label>Wybierz długość [cm]</mat-label>
-                <input type="number" matInput [formControl]="length">
-              </mat-form-field>
+            <div class="col-sm">
+              <figcaption class="figure-caption text-center mb-2">Tył</figcaption>
+              <img (click)="setRoofChoice(2)" class="image" src="../../assets/images/tył.jpg">
+              <img class="image-over" [hidden]="roofChoice%6!==2" src="../../assets/images/check-mark.png">
             </div>
-            <div class="col mt-2">
-              <h4>Szerokość</h4>
-              <mat-form-field appearance="fill">
-                <mat-label>Wybierz szerokość[cm]</mat-label>
-                <input type="number" matInput [formControl]="length">
-              </mat-form-field>
-            </div>
-            <div class="col mt-2">
-              <h4>Wysokość</h4>
-              <mat-form-field appearance="fill">
-                <mat-label>Wybierz wysokość[cm]</mat-label>
-                <input type="number" matInput [formControl]="length">
-              </mat-form-field>
+            <div class="col-sm">
+              <figcaption class="figure-caption text-center mb-2">Prawo</figcaption>
+              <img (click)="setRoofChoice(3)" class="image" src="../../assets/images/prawo.jpg">
+              <img class="image-over" [hidden]="roofChoice%6!==3" src="../../assets/images/check-mark.png">
             </div>
           </div>
-        <div class="row justify-content-center">
-            <div class="col-1 text-center"><button mat-button matStepperPrevious>Wstecz</button></div>
-            <div class="col-1 text-center"><button mat-button matStepperNext>Dalej</button></div>
         </div>
-    </mat-step>
-
-    <mat-step>
-        <ng-template matStepLabel>SPAD DACHU</ng-template>
-        <div class="container-fluid">
-
-            <div class="row mt-5 mb-5">
-                <div class="col">
-                    <div class="row">
-                        <div class="col-sm">
-                            <figcaption class="figure-caption text-center mb-2">Prawo - Lewo</figcaption>
-                            <img (click)="setRoofChoice(1)" class="image" src="../../assets/images/prawo-lewo.jpg">
-                            <img  class="image-over" [hidden]="true" src="../../assets/images/check-mark.png">
-                        </div>
-                        <div class="col-sm">
-                            <figcaption class="figure-caption text-center mb-2">Tył</figcaption>
-                            <img (click)="setRoofChoice(2)" class="image" src="../../assets/images/tył.jpg">
-                            <img  class="image-over" [hidden]="true" src="../../assets/images/check-mark.png">
-                          </div>
-                        <div class="col-sm">
-                            <figcaption class="figure-caption text-center mb-2">Prawo</figcaption>
-                            <img (click)="setRoofChoice(3)" class="image" src="../../assets/images/prawo.jpg">
-                            <img  class="image-over" [hidden]="true" src="../../assets/images/check-mark.png">
-                          </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col-sm">
-                            <figcaption class="figure-caption text-center mb-2">Lewo</figcaption>
-                            <img (click)="setRoofChoice(4)" class="image" src="../../assets/images/lewo.jpg">
-                            <img  class="image-over" [hidden]="true" src="../../assets/images/check-mark.png">
-                          </div>
-                        <div class="col-sm">
-                            <figcaption class="figure-caption text-center mb-2">Przód</figcaption>
-                            <img (click)="setRoofChoice(5)" class="image" src="../../assets/images/przód.jpg">
-                            <img  class="image-over" [hidden]="true" src="../../assets/images/check-mark.png">
-                          </div>
-                        <div class="col-sm">
-                            <figcaption class="figure-caption text-center mb-2">Przód - Tył</figcaption>
-                            <img (click)="setRoofChoice(6)" class="image" src="../../assets/images/przód-tył.jpg">
-                            <img  class="image-over" [hidden]="true" src="../../assets/images/check-mark.png">
-                          </div>
-                    </div>
-                </div>
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <figcaption class="figure-caption text-center mb-2">Lewo</figcaption>
+              <img (click)="setRoofChoice(4)" class="image" src="../../assets/images/lewo.jpg">
+              <img class="image-over" [hidden]="roofChoice%6!==4" src="../../assets/images/check-mark.png">
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-1 text-center"><button mat-button matStepperPrevious>Wstecz</button></div>
-            <div class="col-1 text-center"><button mat-button matStepperNext>Dalej</button></div>
-        </div>
-    </mat-step>
-
-    <mat-step >
-
-            <ng-template matStepLabel>KOLOR I RODZAJ POSZYCIA</ng-template>
-            <div class="container-fluid">
-              <div class="row">
-                  <div class="col">
-                    <div class="row">
-                      <div class="col-sm">
-                        <img class="color-image" src="../../assets/images/ZLOTY-DAB-JASNY.jpg">
-                        <figcaption class="figure-caption text-center">ZŁOTY DĄB JASNY</figcaption>
-                      </div>
-                      <div class="col-sm">
-                        <img class="color-image" src="../../assets/images/ZLOTY-DAB-CIEMNY.jpg">
-                        <figcaption class="figure-caption text-center">ZŁOTY DĄB CIEMNY</figcaption>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="row ">
-                      <div class="col-sm">
-                        <img class="color-image" src="../../assets/images/ORZECH.jpg">
-                        <figcaption class="figure-caption text-center">ORZECH</figcaption>
-                      </div>
-                      <div class="col-sm">
-                        <img class="color-image" src="../../assets/images/RAL-1021-POLYSK.jpg">
-                        <figcaption class="figure-caption text-center">RAL 1021 POŁYSK</figcaption>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <div class="row">
-                    <div class="col-sm">
-                      <img class="color-image" src="../../assets/images/RAL-3005-POLYSK.jpg">
-                      <figcaption class="figure-caption text-center">RAL 3005 POŁYSK</figcaption>
-                    </div>
-                    <div class="col-sm">
-                      <img class="color-image" src="../../assets/images/RAL-3011-POLYSK.jpg">
-                      <figcaption class="figure-caption text-center">RAL 3011 POŁYSK</figcaption>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="row">
-                    <div class="col-sm">
-                      <img class="color-image" src="../../assets/images/RAL-3016-POLYSK.jpg">
-                      <figcaption class="figure-caption text-center">RAL 3016 POŁYSK</figcaption>
-                    </div>
-                    <div class="col-sm">
-                      <img class="color-image" src="../../assets/images/RAL-5010-POLYSK.jpg">
-                      <figcaption class="figure-caption text-center">RAL 5010 POŁYSK</figcaption>
-                    </div>
-                  </div>
-                </div>
+            <div class="col-sm">
+              <figcaption class="figure-caption text-center mb-2">Przód</figcaption>
+              <img (click)="setRoofChoice(5)" class="image" src="../../assets/images/przód.jpg">
+              <img class="image-over" [hidden]="roofChoice%6!==5" src="../../assets/images/check-mark.png">
             </div>
-            <div class="row">
-              <div class="col">
-                <div class="row">
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-6005-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL 6005 POŁYSK</figcaption>
-                  </div>
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-6020-MAT.jpg">
-                    <figcaption class="figure-caption text-center">RAL 6020 MAT</figcaption>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="row">
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-6029-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL 6029 POŁYSK</figcaption>
-                  </div>
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-7000-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL 7000 POŁYSK</figcaption>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="row">
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-7016-MAT.jpg">
-                    <figcaption class="figure-caption text-center">RAL 7016 MAT</figcaption>
-                  </div>
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-7016-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL 7016 POŁYSK</figcaption>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="row">
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-7024-MAT.jpg">
-                    <figcaption class="figure-caption text-center">RAL 7024 MAT</figcaption>
-                  </div>
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-7024-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL 7024 POŁYSK</figcaption>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="row">
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-8004-MAT.jpg">
-                    <figcaption class="figure-caption text-center">RAL 8004 MAT</figcaption>
-                  </div>
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-8016-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL 8016 POŁYSK</figcaption>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="row">
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-8017-MAT.jpg">
-                    <figcaption class="figure-caption text-center">RAL 8017 MAT</figcaption>
-                  </div>
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-8017-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL 8017 POŁYSK</figcaption>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="row">
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-8019-MAT.jpg">
-                    <figcaption class="figure-caption text-center">RAL 8019 MAT</figcaption>
-                  </div>
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-8019-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL 8019 POŁYSK</figcaption>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="row">
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-8023-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL 8023 POŁYSK</figcaption>
-                  </div>
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-9002-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center"> RAL 9002 POŁYSK</figcaption>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="row">
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-9005-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL 9005 POŁYSK</figcaption>
-                  </div>
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-9006-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL 9006 POŁYSK</figcaption>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="row">
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-9007-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL-9007 POŁYSK</figcaption>
-                  </div>
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-9010-MAT.jpg">
-                    <figcaption class="figure-caption text-center">RAL 9010 MAT</figcaption>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="row">
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-9010-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL 9010 POŁYSK</figcaption>
-                  </div>
-                  <div class="col-sm">
-                    <img class="color-image" src="../../assets/images/RAL-1002-POLYSK.jpg">
-                    <figcaption class="figure-caption text-center">RAL 1002 POŁYSK</figcaption>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-1 text-center"><button mat-button matStepperPrevious>Back</button></div>
-              <div class="col-1 text-center"><button mat-button matStepperNext>Next</button></div>
-          </div>
-    </mat-step>
-    <mat-step >
-
-      <ng-template matStepLabel>RODZAJ PRZETŁOCZENIA</ng-template>
-      <div class="container-fluid">
-        <div class="row">
-              <div class="col-sm">
-                <img class="color-image" src="../../assets/images/PIONOWO.jpg">
-                <figcaption class="figure-caption text-center">PIONOWO</figcaption>
-              </div>
-              <div class="col-sm">
-                <img class="color-image" src="../../assets/images/POZIOMO.jpg">
-                <figcaption class="figure-caption text-center">POZIOMO</figcaption>
-              </div>
+            <div class="col-sm">
+              <figcaption class="figure-caption text-center mb-2">Przód - Tył</figcaption>
+              <img (click)="setRoofChoice(6)" class="image" src="../../assets/images/przód-tył.jpg">
+              <img class="image-over" [hidden]="roofChoice%6!==0" src="../../assets/images/check-mark.png">
             </div>
           </div>
-          <div class="row justify-content-center">
-            <div class="col-1 text-center"><button mat-button matStepperPrevious>Back</button></div>
-            <div class="col-1 text-center"><button mat-button matStepperNext>Next</button></div>
         </div>
-    </mat-step>
-    <mat-step >
-      <ng-template matStepLabel>BRAMA</ng-template>
-      <div class="container-fluid">
-        <div class="row">
-              <div class="col-sm">
-                <img class="color-image" src="../../assets/images/BRAK-BRAMY.jpg">
-                <figcaption class="figure-caption text-center">BRAK BRAMY</figcaption>
-              </div>
-              <div class="col-sm">
-                <img class="color-image" src="../../assets/images/UCHYLNA.jpg">
-                <figcaption class="figure-caption text-center">UCHYLNA</figcaption>
-              </div>
-              <div class="col-sm">
-                <img class="color-image" src="../../assets/images/DWUSKRZYDLOWA.jpg">
-                <figcaption class="figure-caption text-center">DWUSKRZYDŁOWA</figcaption>
-              </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-1 text-center">
+        <button mat-button matStepperPrevious>Wstecz</button>
+      </div>
+      <div class="col-1 text-center">
+        <button mat-button matStepperNext>Dalej</button>
+      </div>
+    </div>
+  </mat-step>
+
+  <mat-step>
+
+    <ng-template matStepLabel>KOLOR I RODZAJ POSZYCIA ŚCIAN</ng-template>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(1)" class="color-image" src="../../assets/images/ZLOTY-DAB-JASNY.jpg">
+              <figcaption class="figure-caption text-center">ZŁOTY DĄB JASNY</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==1" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(2)" class="color-image" src="../../assets/images/ZLOTY-DAB-CIEMNY.jpg">
+              <figcaption class="figure-caption text-center">ZŁOTY DĄB CIEMNY</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==2" src="../../assets/images/check-mark.png">
             </div>
           </div>
-          <div class="row justify-content-center">
-            <div class="col-1 text-center"><button mat-button matStepperPrevious>Back</button></div>
-            <div class="col-1 text-center"><button mat-button matStepperNext>Next</button></div>
         </div>
-    </mat-step>
-    <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
-        <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+        <div class="col">
+          <div class="row ">
+            <div class="col-sm">
+              <img (click)="setColourChoice(3)" class="color-image" src="../../assets/images/ORZECH.jpg">
+              <figcaption class="figure-caption text-center">ORZECH</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==3" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(4)" class="color-image" src="../../assets/images/RAL-1021-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 1021 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==4" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
         </div>
-    </mat-step>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(5)" class="color-image" src="../../assets/images/RAL-3005-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 3005 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==5" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(6)" class="color-image" src="../../assets/images/RAL-3011-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 3011 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==6" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(7)" class="color-image" src="../../assets/images/RAL-3016-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 3016 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==7" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(8)" class="color-image" src="../../assets/images/RAL-5010-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 5010 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==8" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(9)" class="color-image" src="../../assets/images/RAL-6005-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 6005 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==9" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(10)" class="color-image" src="../../assets/images/RAL-6020-MAT.jpg">
+              <figcaption class="figure-caption text-center">RAL 6020 MAT</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==10" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(11)" class="color-image" src="../../assets/images/RAL-6029-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 6029 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!=11" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(12)" class="color-image" src="../../assets/images/RAL-7000-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 7000 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==12" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(13)" class="color-image" src="../../assets/images/RAL-7016-MAT.jpg">
+              <figcaption class="figure-caption text-center">RAL 7016 MAT</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==13" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(14)" class="color-image" src="../../assets/images/RAL-7016-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 7016 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==14" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(15)" class="color-image" src="../../assets/images/RAL-7024-MAT.jpg">
+              <figcaption class="figure-caption text-center">RAL 7024 MAT</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==15" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(16)" class="color-image" src="../../assets/images/RAL-7024-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 7024 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==16" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(17)" class="color-image" src="../../assets/images/RAL-8004-MAT.jpg">
+              <figcaption class="figure-caption text-center">RAL 8004 MAT</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==17" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(18)" class="color-image" src="../../assets/images/RAL-8016-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 8016 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==18" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(19)" class="color-image" src="../../assets/images/RAL-8017-MAT.jpg">
+              <figcaption class="figure-caption text-center">RAL 8017 MAT</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==19" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(20)" class="color-image" src="../../assets/images/RAL-8017-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 8017 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==20" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(21)" class="color-image" src="../../assets/images/RAL-8019-MAT.jpg">
+              <figcaption class="figure-caption text-center">RAL 8019 MAT</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==21" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(22)" class="color-image" src="../../assets/images/RAL-8019-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 8019 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==22" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(23)" class="color-image" src="../../assets/images/RAL-8023-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 8023 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==23" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(24)" class="color-image" src="../../assets/images/RAL-9002-POLYSK.jpg">
+              <figcaption class="figure-caption text-center"> RAL 9002 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==24" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(25)" class="color-image" src="../../assets/images/RAL-9005-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 9005 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==25" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(26)" class="color-image" src="../../assets/images/RAL-9006-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 9006 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==26" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(27)" class="color-image" src="../../assets/images/RAL-9007-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL-9007 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==27" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(28)" class="color-image" src="../../assets/images/RAL-9010-MAT.jpg">
+              <figcaption class="figure-caption text-center">RAL 9010 MAT</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==28" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setColourChoice(29)" class="color-image" src="../../assets/images/RAL-9010-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 9010 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==29" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setColourChoice(30)" class="color-image" src="../../assets/images/RAL-1002-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 1002 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="colorChoice%30!==0" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-1 text-center">
+        <button mat-button matStepperPrevious>Wstecz</button>
+      </div>
+      <div class="col-1 text-center">
+        <button mat-button matStepperNext>Dalej</button>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step>
+
+    <ng-template matStepLabel>KOLOR I RODZAJ DACHU</ng-template>
+    <
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setRoofColorChoice(1)" class="color-image" src="../../assets/images/RAL-3005-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 3005 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="roofColorChoice%8!==1" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setRoofColorChoice(2)" class="color-image" src="../../assets/images/RAL-6020-MAT.jpg">
+              <figcaption class="figure-caption text-center">RAL 6020 MAT</figcaption>
+              <img class="image-over" [hidden]="roofColorChoice%8!==2" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row ">
+            <div class="col-sm">
+              <img (click)="setRoofColorChoice(3)" class="color-image" src="../../assets/images/RAL-7016-MAT.jpg">
+              <figcaption class="figure-caption text-center">RAL 7016 MAT</figcaption>
+              <img class="image-over" [hidden]="roofColorChoice%8!==3" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setRoofColorChoice(4)" class="color-image" src="../../assets/images/RAL-7024-MAT.jpg">
+              <figcaption class="figure-caption text-center">RAL 7024 MAT</figcaption>
+              <img class="image-over" [hidden]="roofColorChoice%8!==4" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setRoofColorChoice(5)" class="color-image" src="../../assets/images/RAL-8004-MAT.jpg">
+              <figcaption class="figure-caption text-center">RAL 8004 MAT</figcaption>
+              <img class="image-over" [hidden]="roofColorChoice%8!==5" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setRoofColorChoice(6)" class="color-image" src="../../assets/images/RAL-8017-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 8017 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="roofColorChoice%8!==6" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col-sm">
+              <img (click)="setRoofColorChoice(7)" class="color-image" src="../../assets/images/RAL-8019-MAT.jpg">
+              <figcaption class="figure-caption text-center">RAL 8019 MAT</figcaption>
+              <img class="image-over" [hidden]="roofColorChoice%8!==7" src="../../assets/images/check-mark.png">
+            </div>
+            <div class="col-sm">
+              <img (click)="setRoofColorChoice(8)" class="color-image" src="../../assets/images/RAL-9005-POLYSK.jpg">
+              <figcaption class="figure-caption text-center">RAL 9005 POŁYSK</figcaption>
+              <img class="image-over" [hidden]="roofColorChoice%8!==0" src="../../assets/images/check-mark.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-1 text-center">
+        <button mat-button matStepperPrevious>Wstecz</button>
+      </div>
+      <div class="col-1 text-center">
+        <button mat-button matStepperNext>Dalej</button>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step>
+
+    <ng-template matStepLabel>RODZAJ PRZETŁOCZENIA</ng-template>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm">
+          <img (click)="setEmbossingChoice(1)" class="color-image" src="../../assets/images/PIONOWO.jpg">
+          <figcaption class="figure-caption text-center">PIONOWO</figcaption>
+          <img class="image-over" [hidden]="embossingChoice%2!==1" src="../../assets/images/check-mark.png">
+
+        </div>
+        <div class="col-sm">
+          <img (click)="setEmbossingChoice(2)" class="color-image" src="../../assets/images/POZIOMO.jpg">
+          <figcaption class="figure-caption text-center">POZIOMO</figcaption>
+          <img class="image-over" [hidden]="embossingChoice%2!==0" src="../../assets/images/check-mark.png">
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-1 text-center">
+        <button mat-button matStepperPrevious>Wstecz</button>
+      </div>
+      <div class="col-1 text-center">
+        <button mat-button matStepperNext>Dalej</button>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>BRAMA</ng-template>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm">
+          <img (click)="setGateChoice(1)"  class="color-image" src="../../assets/images/BRAK-BRAMY.jpg">
+          <figcaption class="figure-caption text-center">BRAK BRAMY</figcaption>
+          <img class="image-over" [hidden]="gateChoice%4!==1" src="../../assets/images/check-mark.png">
+        </div>
+        <div class="col-sm">
+          <img (click)="setGateChoice(2)"  class="color-image" src="../../assets/images/UCHYLNA.jpg">
+          <figcaption class="figure-caption text-center">UCHYLNA</figcaption>
+          <img class="image-over" [hidden]="gateChoice%4!==2" src="../../assets/images/check-mark.png">
+        </div>
+        <div class="col-sm">
+          <img (click)="setGateChoice(3)"  class="color-image" src="../../assets/images/SEGMENTOWA.jpg">
+          <figcaption class="figure-caption text-center">SEGMENTOWA</figcaption>
+          <img class="image-over" [hidden]="gateChoice%4!==3" src="../../assets/images/check-mark.png">
+        </div>
+        <div class="col-sm">
+          <img (click)="setGateChoice(4)"  class="color-image" src="../../assets/images/DWUSKRZYDLOWA.jpg">
+          <figcaption class="figure-caption text-center">DWUSKRZYDŁOWA</figcaption>
+          <img class="image-over" [hidden]="gateChoice%4!==0" src="../../assets/images/check-mark.png">
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-1 text-center">
+        <button mat-button matStepperPrevious>Wstecz</button>
+      </div>
+      <div class="col-1 text-center">
+        <button mat-button matStepperNext>Dalej</button>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
 </mat-stepper>
