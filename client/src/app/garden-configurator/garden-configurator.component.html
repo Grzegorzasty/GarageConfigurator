@@ -1,0 +1,16 @@
+<div class="row" style="text-align: center;" >
+  <h1>SCHOWEK OGRODOWY - KONFIGURATOR</h1>
+</div>
+<div class="row" style="margin-top: 16px; text-align: center">
+  <mat-radio-group aria-label="Select an option"   class="example-radio-group"
+                   [(ngModel)]="type">
+    <mat-radio-button [value]="'blaszany'" (change)="changeType()">BLASZANY</mat-radio-button>
+    <mat-radio-button [value]="'tynkowany'" (change)="changeType()">TYNKOWANY</mat-radio-button>
+  </mat-radio-group>
+</div>
+<hr style="height:2px;border-width:0;color:black;background-color:black; width: 95%">
+<div *ngIf="type.length > 1">
+  <app-garage-configurator *ngIf="!isPlastered"></app-garage-configurator>
+  <app-plastered-garage-configurator *ngIf="isPlastered"></app-plastered-garage-configurator>
+</div>
+

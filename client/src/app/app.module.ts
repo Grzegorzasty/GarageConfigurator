@@ -11,16 +11,25 @@ import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './configurator/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { GarageConfiguratorComponent } from './garage-configurator/garage-configurator.component';
+import { PlasteredGarageConfiguratorComponent } from './plastered-garage-configurator/plastered-garage-configurator.component';
+import { DumpsterConfiguratorComponent } from './dumpster-configurator/dumpster-configurator.component';
+
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatStepperModule} from "@angular/material/stepper";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import { StepperComponent } from './garage-configurator/stepper/stepper.component';
-import { DumpsterConfiguratorComponent } from './dumpster-configurator/dumpster-configurator.component';
-import { GardenStorageConfiguratorComponent } from './garden-storage-configurator/garden-storage-configurator.component';
+import { PlasteredStepperComponent} from './plastered-garage-configurator/stepper/plastered-stepper.component';
+import { DumpsterStepperComponent} from './dumpster-configurator/stepper/dumpster-stepper.component';
+
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatRadioModule} from "@angular/material/radio";
+import { GardenConfiguratorComponent } from './garden-configurator/garden-configurator.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 @NgModule({
@@ -31,9 +40,14 @@ import { GardenStorageConfiguratorComponent } from './garden-storage-configurato
     ContactComponent,
     FooterComponent,
     GarageConfiguratorComponent,
-    StepperComponent,
+    PlasteredGarageConfiguratorComponent,
     DumpsterConfiguratorComponent,
-    GardenStorageConfiguratorComponent
+    StepperComponent,
+    PlasteredStepperComponent,
+    DumpsterStepperComponent,
+    GardenConfiguratorComponent,
+    GalleryComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +56,9 @@ import { GardenStorageConfiguratorComponent } from './garden-storage-configurato
     MatTooltipModule,
     RouterModule.forRoot([
       {path: 'kontakt', component: ContactComponent},
-      {path: 'oferta', component: ProductsComponent}
+      {path: 'oferta', component: ProductsComponent},
+      {path: 'galeria', component: GalleryComponent},
+      {path: 'onas', component: AboutusComponent}
 
     ]),
     MatFormFieldModule,
@@ -52,6 +68,9 @@ import { GardenStorageConfiguratorComponent } from './garden-storage-configurato
     ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

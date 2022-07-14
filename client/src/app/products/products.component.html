@@ -10,7 +10,8 @@
       <div class="row">
         <div class="col-sm">
           <figcaption class="figure-caption text-center">Garaże ocieplane tynkowane</figcaption>
-          <img class="image" src="https://garazyki.pl/wp-content/uploads/2022/02/0Garaz_4x6_ocieplany_Bialy__1_.jpg">
+          <img class="image" src="https://garazyki.pl/wp-content/uploads/2022/02/0Garaz_4x6_ocieplany_Bialy__1_.jpg"
+               (click)='isSampleGarageChoose("plastered-garage")'>
         </div>
         <div class="col-sm">
           <figcaption class="figure-caption text-center">Garaże blaszane</figcaption>
@@ -47,9 +48,12 @@
 <div class="div" *ngIf="isSampleGarage == 'steel-woodalike-garage'">
   <app-garage-configurator></app-garage-configurator>
 </div>
+<div class="div" *ngIf="isSampleGarage == 'plastered-garage'">
+  <app-plastered-garage-configurator></app-plastered-garage-configurator>
+</div>
 <div class="div" *ngIf="isSampleGarage == 'dumpster'">
   <app-dumpster-configurator></app-dumpster-configurator>
 </div>
 <div class="div" *ngIf="isSampleGarage == 'garden-storage'">
-  <app-garden-storage-configurator></app-garden-storage-configurator>
+  <app-garden-configurator></app-garden-configurator>
 </div>
