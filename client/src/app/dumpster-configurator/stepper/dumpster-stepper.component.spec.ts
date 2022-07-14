@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StepperComponent } from './stepper.component';
+import { DumpsterStepperComponent } from './dumpster-stepper.component';
 
 describe('StepperComponent', () => {
-  let component: StepperComponent;
-  let fixture: ComponentFixture<StepperComponent>;
+  let component: DumpsterStepperComponent;
+  let fixture: ComponentFixture<DumpsterStepperComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StepperComponent ]
+      declarations: [ DumpsterStepperComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StepperComponent);
+    fixture = TestBed.createComponent(DumpsterStepperComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-dumpster-configurator',
   templateUrl: './dumpster-configurator.component.html',
   styleUrls: ['./dumpster-configurator.component.css']
 })
-export class DumpsterConfiguratorComponent implements OnInit {
-
+export class DumpsterConfiguratorComponent {
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

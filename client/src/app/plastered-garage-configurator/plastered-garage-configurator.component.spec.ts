@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DumpsterConfiguratorComponent } from './dumpster-configurator.component';
+import { PlasteredGarageConfiguratorComponent } from './plastered-garage-configurator.component';
 
 describe('GarageConfiguratorComponent', () => {
-  let component: DumpsterConfiguratorComponent;
-  let fixture: ComponentFixture<DumpsterConfiguratorComponent>;
+  let component: PlasteredGarageConfiguratorComponent;
+  let fixture: ComponentFixture<PlasteredGarageConfiguratorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DumpsterConfiguratorComponent ]
+      declarations: [ PlasteredGarageConfiguratorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DumpsterConfiguratorComponent);
+    fixture = TestBed.createComponent(PlasteredGarageConfiguratorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

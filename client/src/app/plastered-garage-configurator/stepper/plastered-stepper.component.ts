@@ -1,18 +1,17 @@
 import {Component,  OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatHorizontalStepper} from "@angular/material/stepper";
-import * as Email from '../../../assets/script/smtp';
+
 @Component({
-  selector: 'app-stepper',
-  templateUrl: './stepper.component.html',
-  styleUrls: ['./stepper.component.css']
+  selector: 'app-stepper-plastered',
+  templateUrl: './plastered-stepper.component.html',
+  styleUrls: ['./plastered-stepper.component.css']
 })
-export class StepperComponent implements OnInit {
+export class PlasteredStepperComponent implements OnInit {
   @ViewChild('stepper') stepper: MatHorizontalStepper;
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  isEditable = false;
   length = new FormControl('', [Validators.required]);
   width = new FormControl('', [Validators.required]);
   height = new FormControl('', [Validators.required]);
@@ -20,7 +19,6 @@ export class StepperComponent implements OnInit {
   colorChoice: number;
   roofColorChoice: number;
   gateChoice: number;
-  embossingChoice: number;
 
 
   constructor(private _formBuilder: FormBuilder) {
@@ -50,32 +48,8 @@ export class StepperComponent implements OnInit {
     this.roofColorChoice = roofColorChoiceId;
   }
 
-  setEmbossingChoice(embossingChoiceId: number) {
-    this.embossingChoice = embossingChoiceId;
-  }
-
   setGateChoice(gateChoiceId: number) {
     this.gateChoice = gateChoiceId;
   }
-
-  sendMail() {
-    try {
-      Email.send({
-        Host: "smtp.gmail.com",
-        Username : "peepeek18@gmail.com",
-        Password : "kuks18fcb98gz",
-        To : 'grzegorzzelek10@gmail.com',
-        From : "peepeek18@gmail.com",
-        Subject : "Test",
-        Body : "Test",
-      }).then(
-        message => alert("mail sent successfully")
-      );
-    } catch (e) {
-      console.log(e);
-    }
-
-  }
-
 
 }
