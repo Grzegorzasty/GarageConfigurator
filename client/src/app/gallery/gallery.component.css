@@ -35,9 +35,9 @@ section{
   outline:none;
 }
 .gallery_product{
-  margin: 0px;
+  margin: 50px;
   padding:0;
-  position:relative;
+  position: center;
 }
 .gallery_product .img-info{
   position: absolute;
@@ -58,6 +58,14 @@ section{
   display:block;
   -webkit-transition: 2s;
   transition: 2s;
+}
+
+.col-sm {
+  text-align: center;
+}
+.color-image{
+  margin:25px;
+  margin-bottom: 5px;
 }
 
 /*	end gallery */
